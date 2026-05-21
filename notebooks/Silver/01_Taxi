@@ -1,0 +1,29 @@
+import pyspark.sql.functions as F
+
+df_taxi = spark.read.table("Bronze.dbo.nyc_taxi_trips")
+
+df_taxi = df_taxi.withColumn(
+    "pickup_datetime",
+    F.col("tpep_pickup_datetime")
+)
+
+df_taxi_silver = df_taxi \
+    .dropDuplicates() \
+    .filter(
+        (F.col("trip_distance") > 0) &
+        (F.col("fare_amount") > 0) &
+        (F.col("passenger_count") > 0) &
+        F.col("pickup_datetime").isNotNull()
+    ) \
+    .withColumn("year", F.year(F.col("pickup_datetime"))) \
+    .withColumn("month", F.month(F.col("pickup_datetime"))) \
+    .withColumn("day_of_week", F.dayofweek(F.col("pickup_datetime"))) \
+    .withColumn("hour", F.hour(F.col("pickup_datetime"))) \
+    .withColumn("fare_eur", F.round(F.col("fare_amount") / 1.08, 2))
+
+df_taxi_silver.write.format("delta") \
+    .mode("overwrite") \
+    .option("overwriteSchema", "true") \
+    .saveAsTable("Silver.dbo.nyc_taxi_silver")
+
+print(f"Silver такси записано: {df_taxi_silver.count()}")
