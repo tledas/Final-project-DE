@@ -1,0 +1,113 @@
+# define locations
+def get_locations_nyc():
+    locations = []
+    page = 1
+    while True:
+        r = requests.get(
+            f"{BASE_URL}/locations",
+            headers=HEADERS,
+            params={
+                "bbox": NYC_BBOX,
+                "limit": 1000,
+                "page": page
+            },
+            timeout=30
+        )
+        print(f"Страница {page}: статус {r.status_code}")
+
+        data = r.json()
+        results = data.get("results", [])
+
+        if not results:
+            break
+        locations.extend(results)
+        print(f"Получено {len(results)} локаций, всего: {len(locations)}")
+        page += 1
+        time.sleep(0.5)
+    return locations
+locations = get_locations_nyc()
+
+print(f"\nВсего локаций NYC bbox: {len(locations)}")
+
+
+#define location 
+available_locations = []
+
+for loc in locations:
+    location_id = loc["id"]
+    location_name = loc.get("name", "")
+
+    years_found = []
+
+    for year in YEARS:
+        found_year = False
+
+        for month in MONTHS:
+            prefix = f"records/csv.gz/locationid={location_id}/year={year}/month={month}/"
+
+            r = requests.get(
+                BUCKET_URL,
+                params={
+                    "list-type": "2",
+                    "prefix": prefix,
+                    "max-keys": 1
+                },
+                timeout=30
+            )
+
+            if "<Key>" in r.text:
+                found_year = True
+                break
+
+            time.sleep(0.03)
+
+        if found_year:
+            years_found.append(year)
+
+    if years_found:
+        available_locations.append({
+            "location_id": location_id,
+            "location_name": location_name,
+            "years": years_found
+        })
+
+        print(location_id, location_name, years_found)
+
+print("Locations available:", len(available_locations))
+
+
+#specify NYC 
+
+NYC_LOCATION_IDS = [
+    384,      # CCNY
+    625,      # Manhattan/IS143
+    626,      # Bronx - IS52
+    628,      # Maspeth
+    631,      # Queens
+    648,      # Bklyn - PS 314
+    664,      # Bklyn - PS274
+    665,      # Bronx - IS74
+    666,      # Pfizer Lab
+    292229,   # Morrisania
+    1824516,  # Bayside, NY
+    2616564,  # 7th Ave and W 16th St
+    2903996,  # Win Son
+    3041962,  # Near Bay 50 St
+    3181018,  # Hillcrest, NY
+    4727343,  # E Houston St between Clinton St & Attorney St
+    4811604,  # Caton Ave and Ocean Pkwy, Brooklyn
+    6091551,  # Brooklyn
+    6166696   # Downtown Manhattan FiDi/Seaport
+]
+
+available_locations = [
+    item for item in available_locations
+    if item["location_id"] in NYC_LOCATION_IDS
+]
+
+print("NYC-only locations:", len(available_locations))
+
+for item in available_locations:
+    print(item["location_id"], item["location_name"], item["years"])
+
+
