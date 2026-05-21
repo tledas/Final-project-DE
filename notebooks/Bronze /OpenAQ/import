@@ -1,0 +1,49 @@
+#find CSV urls
+file_urls = []
+
+for item in available_locations:
+    location_id = item["location_id"]
+
+    for year in YEARS:
+        for month in MONTHS:
+            prefix = f"records/csv.gz/locationid={location_id}/year={year}/month={month}/"
+
+            r = requests.get(
+                BUCKET_URL,
+                params={
+                    "list-type": "2",
+                    "prefix": prefix,
+                    "max-keys": 1000
+                },
+                timeout=30
+            )
+
+            if "<Key>" not in r.text:
+                continue
+
+            keys = r.text.split("<Key>")[1:]
+
+            for k in keys:
+                key = k.split("</Key>")[0]
+                file_urls.append(BUCKET_URL + key)
+
+print("CSV files:", len(file_urls))
+print(file_urls[:3])
+
+#read CSV
+
+all_pdfs = []
+
+for i, file_url in enumerate(file_urls):
+    try:
+        pdf = pd.read_csv(file_url, compression="gzip")
+        pdf = pdf[pdf["parameter"].isin(PARAMS)]
+        pdf["source_file"] = file_url.replace(BUCKET_URL, "")
+        all_pdfs.append(pdf)
+    except Exception as e:
+        print("Ошибка чтения:", file_url, e)
+
+    if (i + 1) % 500 == 0:
+        print(f"Прочитано файлов: {i + 1}/{len(file_urls)}")
+
+print("Pandas chunks:", len(all_pdfs))
