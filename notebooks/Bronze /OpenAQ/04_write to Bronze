@@ -1,0 +1,32 @@
+from pyspark.sql.types import *
+from pyspark.sql.functions import col
+
+schema = StructType([
+    StructField("location_id", IntegerType(), True),
+    StructField("sensors_id", IntegerType(), True),
+    StructField("location", StringType(), True),
+    StructField("datetime", StringType(), True),
+    StructField("lat", DoubleType(), True),
+    StructField("lon", DoubleType(), True),
+    StructField("parameter", StringType(), True),
+    StructField("units", StringType(), True),
+    StructField("value", DoubleType(), True),
+    StructField("source_file", StringType(), True),
+])
+
+pdf_all = pd.concat(all_pdfs, ignore_index=True)
+
+df = spark.createDataFrame(pdf_all, schema=schema) \
+    .withColumnRenamed("sensors_id", "sensor_id") \
+    .withColumnRenamed("location", "location_name") \
+    .withColumn("measured_at", col("datetime").cast("timestamp")) \
+    .drop("datetime")
+
+df.write.format("delta") \
+    .mode("overwrite") \
+    .option("overwriteSchema", "true") \
+    .partitionBy("parameter") \
+    .saveAsTable("Bronze.dbo.openaq_measurements")
+
+print(f"Bronze OpenAQ записано: {df.count()} строк")
+display(df.limit(10))
