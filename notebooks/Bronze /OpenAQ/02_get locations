@@ -1,4 +1,4 @@
-# define locations
+# Keep selected NYC monitoring locations used in the project
 def get_locations_nyc():
     locations = []
     page = 1
@@ -30,7 +30,7 @@ locations = get_locations_nyc()
 print(f"\nВсего локаций NYC bbox: {len(locations)}")
 
 
-#define location 
+# Check which locations have archive files for 2023-2024
 available_locations = []
 
 for loc in locations:
