@@ -1,0 +1,24 @@
+SELECT
+d. year, d.month,
+a. parameter,
+ROUND (AVG (a.avg_value), 2)
+AS
+avg_pollution_value,
+ROUND (MIN (a min_value), 2)
+AS
+min_pollution_value,
+ROUND (MAX (a. max_value), 2) AS max_pollution_value,
+SUM (a measurement_count) AS
+measurement_count
+FROM dbo.factairqualitydaily
+JOIN dbo. dimdate d
+ON a. date_key = d.date_key
+GROUP BY
+d. year, d.month,
+a. parameter
+ORDER BY
+d. year,
+a. month,
+a. parameter;
+Fix d
+fabric.microsoft.com
