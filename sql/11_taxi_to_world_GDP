@@ -1,4 +1,4 @@
-REATE TABLE dbo.rpt_taxi_gdp_yearly AS
+CREATE TABLE dbo.rpt_taxi_gdp_yearly AS
 WITH taxi_yearly AS (
     SELECT
         d.year,
