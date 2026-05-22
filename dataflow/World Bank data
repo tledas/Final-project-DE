@@ -1,0 +1,9 @@
+let
+    Source = Json.Document(Web.Contents("https://api.worldbank.org/v2/country/USA/indicator/NY.GDP.MKTP.CD?format=json&per_page=100")),
+    Data = Source{1},
+    ToTable = Table.FromList(Data, Splitter.SplitByNothing(), {"Column1"}),
+    Expanded = Table.ExpandRecordColumn(ToTable, "Column1", {"date", "value"}, {"year", "gdp_usd"}),
+    FilteredRows = Table.SelectRows(Expanded, each [year] = "2023" or [year] = "2024"),
+    ChangedType = Table.TransformColumnTypes(FilteredRows, {{"year", Int64.Type}, {"gdp_usd", type number}})
+in
+    ChangedType
