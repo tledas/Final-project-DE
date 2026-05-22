@@ -1,0 +1,22 @@
+REATE TABLE dbo.rpt_taxi_gdp_yearly AS
+WITH taxi_yearly AS (
+    SELECT
+        d.year,
+        SUM(t.trip_count) AS total_trips,
+        ROUND(SUM(t.total_fare_usd), 2) AS total_fare_usd,
+        ROUND(SUM(t.total_fare_usd) / NULLIF(SUM(t.trip_count), 0), 2) AS avg_fare_usd
+    FROM dbo.facttaxidaily t
+    JOIN dbo.dimdate d
+        ON t.date_key = d.date_key
+    GROUP BY d.year
+)
+SELECT
+    t.year,
+    t.total_trips,
+    t.total_fare_usd,
+    t.avg_fare_usd,
+    g.gdp_usd,
+    ROUND(t.total_fare_usd / NULLIF(g.gdp_usd, 0) * 100, 6) AS taxi_revenue_pct_of_gdp
+FROM taxi_yearly t
+LEFT JOIN dbo.dimgdp g
+    ON t.year = g.year;
