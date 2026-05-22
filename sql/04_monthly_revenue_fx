@@ -1,0 +1,38 @@
+WITH taxi_daily AS (
+    SELECT
+        date_key,
+        date,
+        (trip_count) AS total_trips,
+        SUM(total_fare_usd) AS total_fare_usd
+    FROM dbo.facttaxidaily
+    GROUP BY date_key, date
+),
+taxi_fx AS (
+    SELECT
+        t.date,
+        t.date_key,
+        t.total_trips,
+        ROUND(t.total_fare_usd, 2) AS total_fare_usd,
+        ROUND(t.total_fare_usd / NULLIF(f.usd_eur_rate, 0), 2) AS total_fare_eur,
+        f.usd_eur_rate
+    FROM taxi_daily t
+    LEFT JOIN dbo.dimfx f
+        ON t.date = f.date
+)
+SELECT
+    d.year,
+
+    d.month,
+    ROUND(SUM(tf.total_fare_usd), 2) AS monthly_fare_usd,
+    ROUND(SUM(tf.total_fare_eur), 2) AS monthly_fare_eur,
+    ROUND(AVG(tf.usd_eur_rate), 4) AS avg_usd_eur_rate,
+    SUM(tf.total_trips) AS total_trips
+FROM taxi_fx tf
+JOIN dbo.dimdate d
+    ON tf.date_key = d.date_key
+GROUP BY
+    d.year,
+    d.month
+ORDER BY
+    d.year,
+    d.month;
