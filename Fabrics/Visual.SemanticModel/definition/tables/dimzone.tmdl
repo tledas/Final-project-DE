@@ -1,0 +1,47 @@
+table dimzone
+	lineageTag: b6341b46-a6a0-4408-b1eb-ae803e75ead2
+	sourceLineageTag: [dbo].[dimzone]
+
+	column LocationID
+		dataType: string
+		lineageTag: e2f9b753-2348-4c43-a9ed-538c2e9a60b0
+		sourceLineageTag: LocationID
+		summarizeBy: none
+		sourceColumn: LocationID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Borough
+		dataType: string
+		lineageTag: c4a70e9d-c6f0-4052-9a73-860275231f89
+		sourceLineageTag: Borough
+		summarizeBy: none
+		sourceColumn: Borough
+
+		annotation SummarizationSetBy = Automatic
+
+	column Zone
+		dataType: string
+		lineageTag: 4234ebbf-fd24-42c1-aa68-8e2737dc3172
+		sourceLineageTag: Zone
+		summarizeBy: none
+		sourceColumn: Zone
+
+		annotation SummarizationSetBy = Automatic
+
+	column service_zone
+		dataType: string
+		lineageTag: 9f6d14d9-0963-44cd-b286-e5c017d36885
+		sourceLineageTag: service_zone
+		summarizeBy: none
+		sourceColumn: service_zone
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimzone = entity
+		mode: directLake
+		source
+			entityName: dimzone
+			schemaName: dbo
+			expressionSource: 'DirectLake - Warehouse'
+

@@ -1,0 +1,55 @@
+{
+  "formatVersion": "202502",
+  "computeEngineSettings": {
+    "allowModernEvaluationEngine": true
+  },
+  "name": "Dataflow 1",
+  "queryGroups": [],
+  "documentLocale": "en-GB",
+  "queriesMetadata": {
+    "ECB data": {
+      "queryId": "98ceb053-37e4-4d00-a641-090841456f98",
+      "queryName": "ECB data",
+      "loadEnabled": false
+    },
+    "World bank data": {
+      "queryId": "ce3fa84e-c503-460a-bfe4-380450ae6f96",
+      "queryName": "World bank data",
+      "loadEnabled": false
+    },
+    "World bank data_DataDestination": {
+      "queryId": "bd0ddd6e-874c-4dfa-abfd-a04786fd6f43",
+      "queryName": "World bank data_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    },
+    "ECB data_DataDestination": {
+      "queryId": "39cca40d-e808-4e88-82a2-1adf84175496",
+      "queryName": "ECB data_DataDestination",
+      "isHidden": true,
+      "loadEnabled": false
+    }
+  },
+  "connections": [
+    {
+      "path": "https://api.openaq.org/",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"b125b4d8-1d00-4652-b8a4-077b327d855c\",\"DatasourceId\":\"7bbf47ba-8f7a-4ea2-b484-440098b6d99d\"}"
+    },
+    {
+      "path": "https://data-api.ecb.europa.eu/service/data/EXR/D.USD.EUR.SP00.A?format=csvdata",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"b125b4d8-1d00-4652-b8a4-077b327d855c\",\"DatasourceId\":\"7c0a9cc6-b3f9-4a03-b519-09b57e3d79f6\"}"
+    },
+    {
+      "path": "Lakehouse",
+      "kind": "Lakehouse",
+      "connectionId": "{\"ClusterId\":\"b125b4d8-1d00-4652-b8a4-077b327d855c\",\"DatasourceId\":\"c8b96f3f-1899-49cf-be1f-af6ee8a70344\"}"
+    },
+    {
+      "path": "https://api.worldbank.org/v2/country/USA/indicator/NY.GDP.MKTP.CD?format=json&per_page=100",
+      "kind": "Web",
+      "connectionId": "{\"ClusterId\":\"b125b4d8-1d00-4652-b8a4-077b327d855c\",\"DatasourceId\":\"2f33cd53-51df-4688-bcb8-1df18f0d107a\"}"
+    }
+  ]
+}

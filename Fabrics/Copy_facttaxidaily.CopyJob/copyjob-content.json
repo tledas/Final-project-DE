@@ -1,0 +1,65 @@
+{
+  "properties": {
+    "jobMode": "Batch",
+    "source": {
+      "type": "LakehouseTable",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "df8f3eb3-c872-868a-48ff-6f83f50e128a",
+          "rootFolder": "Tables"
+        }
+      }
+    },
+    "destination": {
+      "type": "DataWarehouseTable",
+      "connectionSettings": {
+        "type": "DataWarehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "8fa5268a-7b13-8f78-4995-a07c5b01d68b",
+          "endPoint": "jsfnrdg43k4ujibntot67pfegq-6r5k45eiq7vexogexa3x7u3wy4.datawarehouse.fabric.microsoft.com"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00",
+      "retry": 0
+    }
+  },
+  "activities": [
+    {
+      "id": "f454ec30-73b9-460e-aa6d-b3f58b35d877",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "facttaxidaily"
+          },
+          "partitionSettings": {
+            "partitionOption": "None"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "facttaxidaily"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}

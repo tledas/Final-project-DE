@@ -1,0 +1,12 @@
+relationship b61d4986-5fa7-5f53-02de-e1485190d5f8
+	fromColumn: facttaxidaily.date_key
+	toColumn: dimdate.date_key
+
+relationship a3881547-8eb6-7047-ccb9-83c8f417cd4b
+	fromColumn: factairqualitydaily.date_key
+	toColumn: dimdate.date_key
+
+relationship 0255b355-aa3c-bd5b-26ff-76bdf3a8d52c
+	fromColumn: facttaxidaily.zone_id
+	toColumn: dimzone_fixed.locationid
+

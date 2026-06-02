@@ -1,0 +1,106 @@
+table rpt_taxi_fx_daily
+	lineageTag: df416e34-688b-4af2-8a7e-2f0bdbeaa9ca
+	sourceLineageTag: [dbo].[rpt_taxi_fx_daily]
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f967b553-3e6e-4e98-a5d7-2ae4353089ff
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a1deffa-f0ce-48a6-87e3-7f5680b42e0a
+		sourceLineageTag: year
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: e98e38fa-1894-460e-afa9-e25f13af4628
+		sourceLineageTag: month
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_trips
+		dataType: int64
+		formatString: 0
+		lineageTag: 01d912bd-aac3-4cdc-8031-3ab9dc9afb94
+		sourceLineageTag: total_trips
+		summarizeBy: sum
+		sourceColumn: total_trips
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_fare_usd
+		dataType: double
+		lineageTag: 5046f494-09dc-4627-965a-a3259965ea75
+		sourceLineageTag: total_fare_usd
+		summarizeBy: sum
+		sourceColumn: total_fare_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column theoretical_fare_eur
+		dataType: double
+		lineageTag: 2da28463-cc8a-4863-9b1a-198867643505
+		sourceLineageTag: theoretical_fare_eur
+		summarizeBy: sum
+		sourceColumn: theoretical_fare_eur
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column eur_difference
+		dataType: double
+		lineageTag: c24e10d4-431b-44a9-be15-f2d79a48afe2
+		sourceLineageTag: eur_difference
+		summarizeBy: sum
+		sourceColumn: eur_difference
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column usd_eur_rate
+		dataType: double
+		lineageTag: 23eb989c-3f12-4b93-9aca-8d29b5d696e8
+		sourceLineageTag: usd_eur_rate
+		summarizeBy: sum
+		sourceColumn: usd_eur_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fixed_fare_eur
+		dataType: double
+		lineageTag: 08aa2218-4838-45ed-bb17-c9bcc4f819f3
+		sourceLineageTag: fixed_fare_eur
+		summarizeBy: sum
+		sourceColumn: fixed_fare_eur
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition rpt_taxi_fx_daily = entity
+		mode: directLake
+		source
+			entityName: rpt_taxi_fx_daily
+			schemaName: dbo
+			expressionSource: 'DirectLake - Warehouse'
+

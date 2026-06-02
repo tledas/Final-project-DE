@@ -1,0 +1,75 @@
+table rpt_taxi_gdp_yearly
+	lineageTag: 15485ea5-375f-4111-b1ff-abf13f78ed19
+	sourceLineageTag: [dbo].[rpt_taxi_gdp_yearly]
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b88aedd-7b24-493d-9cfb-7047c9e84068
+		sourceLineageTag: year
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_trips
+		dataType: int64
+		formatString: 0
+		lineageTag: 415f65d7-22ca-4b08-8e96-3bbc405c626e
+		sourceLineageTag: total_trips
+		summarizeBy: sum
+		sourceColumn: total_trips
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_fare_usd
+		dataType: double
+		lineageTag: bc89b7cb-c9cd-41dd-b3bf-d80d38afa70a
+		sourceLineageTag: total_fare_usd
+		summarizeBy: sum
+		sourceColumn: total_fare_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column avg_fare_usd
+		dataType: double
+		lineageTag: 4e934dd9-a37d-4739-a377-c009b86c9d20
+		sourceLineageTag: avg_fare_usd
+		summarizeBy: sum
+		sourceColumn: avg_fare_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column gdp_usd
+		dataType: double
+		lineageTag: dae254bd-6eb4-4a71-b3c7-3dc845b6dc1e
+		sourceLineageTag: gdp_usd
+		summarizeBy: sum
+		sourceColumn: gdp_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column taxi_revenue_pct_of_gdp
+		dataType: double
+		lineageTag: 89812923-4ce5-4446-ab8a-71a9ca7d0e84
+		sourceLineageTag: taxi_revenue_pct_of_gdp
+		summarizeBy: sum
+		sourceColumn: taxi_revenue_pct_of_gdp
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition rpt_taxi_gdp_yearly = entity
+		mode: directLake
+		source
+			entityName: rpt_taxi_gdp_yearly
+			schemaName: dbo
+			expressionSource: 'DirectLake - Warehouse'
+

@@ -1,0 +1,32 @@
+table dimgdp
+	lineageTag: b7d8623e-469b-434c-bd5a-afbc9be49562
+	sourceLineageTag: [dbo].[dimgdp]
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: a1a44608-a13d-46a3-bf3f-1d336d9efb1c
+		sourceLineageTag: year
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column gdp_usd
+		dataType: double
+		lineageTag: 887c3cac-708d-4afa-8eec-0aee380afef2
+		sourceLineageTag: gdp_usd
+		summarizeBy: sum
+		sourceColumn: gdp_usd
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition dimgdp = entity
+		mode: directLake
+		source
+			entityName: dimgdp
+			schemaName: dbo
+			expressionSource: 'DirectLake - Warehouse'
+

@@ -1,0 +1,334 @@
+{
+  "config": "{\"version\":\"5.73\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY26SU05\",\"type\":2,\"version\":{\"visual\":\"2.9.0\",\"report\":\"3.3.0\",\"page\":\"2.3.1\"}}},\"activeSectionIndex\":3,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "5b980080591bb74a7cad",
+      "config": "{}",
+      "name": "7a55f1ae1503f0382e45"
+    },
+    {
+      "boundSection": "436fa5bf5e7fc20e138b",
+      "config": "{}",
+      "name": "fca00924bb6990a39dbb",
+      "referenceScope": 1
+    }
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY26SU05",
+            "path": "BaseThemes/CY26SU05.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Taxi Economics: GDP & FX",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "436fa5bf5e7fc20e138b",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"1a48f408f2797c267886\",\"layouts\":[{\"id\":0,\"position\":{\"x\":207.2682323856613,\"y\":0,\"z\":5000,\"width\":254.73423980222495,\"height\":140.81582200247217,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Sum(rpt_taxi_fx_daily.theoretical_fare_eur)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"rpt_taxi_fx_daily\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"theoretical_fare_eur\"}},\"Function\":0},\"Name\":\"Sum(rpt_taxi_fx_daily.theoretical_fare_eur)\",\"NativeReferenceName\":\"Total theoretical taxi revenue euro\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"theoretical_fare_eur\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(rpt_taxi_fx_daily.theoretical_fare_eur)\":{\"displayName\":\"Total theoretical taxi revenue euro\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 140.82,
+          "width": 254.73,
+          "x": 207.27,
+          "y": 0.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"49bd4afb6b0093db3301\",\"layouts\":[{\"id\":0,\"position\":{\"x\":476.24227441285535,\"y\":0,\"z\":0,\"width\":480.98887515451173,\"height\":305.3646477132262,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"areaChart\",\"projections\":{\"Category\":[{\"queryRef\":\"rpt_taxi_gdp_yearly.year\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(rpt_taxi_gdp_yearly.taxi_revenue_pct_of_gdp)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"rpt_taxi_gdp_yearly\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"year\"},\"Name\":\"rpt_taxi_gdp_yearly.year\",\"NativeReferenceName\":\"year\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"taxi_revenue_pct_of_gdp\"}},\"Function\":0},\"Name\":\"Sum(rpt_taxi_gdp_yearly.taxi_revenue_pct_of_gdp)\",\"NativeReferenceName\":\"Taxi % from GDP\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"taxi_revenue_pct_of_gdp\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(rpt_taxi_gdp_yearly.taxi_revenue_pct_of_gdp)\":{\"displayName\":\"Taxi % from GDP\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 305.36,
+          "width": 480.99,
+          "x": 476.24,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"4f7be25f6e0ea48b6bf2\",\"layouts\":[{\"id\":0,\"position\":{\"x\":689.8393077873918,\"y\":305.3646477132262,\"z\":1000,\"width\":590.1606922126081,\"height\":351.248454882571,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(dimfx.usd_eur_rate)\"}],\"Category\":[{\"queryRef\":\"dimfx.date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dimfx\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"usd_eur_rate\"}},\"Function\":1},\"Name\":\"Sum(dimfx.usd_eur_rate)\",\"NativeReferenceName\":\"AVG usd eur rate \"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"},\"Name\":\"dimfx.date\",\"NativeReferenceName\":\"date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}}]},\"columnProperties\":{\"Sum(dimfx.usd_eur_rate)\":{\"displayName\":\"AVG usd eur rate \"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 351.25,
+          "width": 590.16,
+          "x": 689.84,
+          "y": 305.36,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"677e1e86685ecb7d349f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":207.2682323856613,\"y\":140.81582200247217,\"z\":6000,\"width\":268.97404202719406,\"height\":140.81582200247217,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Sum(rpt_taxi_fx_daily.fixed_fare_eur)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"rpt_taxi_fx_daily\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"fixed_fare_eur\"}},\"Function\":0},\"Name\":\"Sum(rpt_taxi_fx_daily.fixed_fare_eur)\",\"NativeReferenceName\":\"Total revenue euro fixed rate \"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"fixed_fare_eur\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(rpt_taxi_fx_daily.fixed_fare_eur)\":{\"displayName\":\"Total revenue euro fixed rate \"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 140.82,
+          "width": 268.97,
+          "x": 207.27,
+          "y": 140.82,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"74b471b859358b850d3c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.493201483312731,\"y\":0,\"z\":3000,\"width\":197.77503090234856,\"height\":140.81582200247217,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Sum(rpt_taxi_gdp_yearly.total_fare_usd)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"rpt_taxi_gdp_yearly\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"total_fare_usd\"}},\"Function\":0},\"Name\":\"Sum(rpt_taxi_gdp_yearly.total_fare_usd)\",\"NativeReferenceName\":\"Sum of total_fare_usd\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"total_fare_usd\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 140.82,
+          "width": 197.78,
+          "x": 9.49,
+          "y": 0.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"e1b97bc9cdd3d70a7b97\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":140.81582200247217,\"z\":2000,\"width\":207.2682323856613,\"height\":150.3090234857849,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Sum(dimgdp.gdp_usd)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dimgdp\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"gdp_usd\"}},\"Function\":0},\"Name\":\"Sum(dimgdp.gdp_usd)\",\"NativeReferenceName\":\"Total GDP usd\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"gdp_usd\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(dimgdp.gdp_usd)\":{\"displayName\":\"Total GDP usd\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 150.31,
+          "width": 207.27,
+          "x": 0.00,
+          "y": 140.82,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"ec460afc253687767f9b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":305.3646477132262,\"z\":4000,\"width\":689.8393077873918,\"height\":351.248454882571,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(rpt_taxi_fx_daily.fixed_fare_eur)\"}],\"Y2\":[{\"queryRef\":\"Sum(rpt_taxi_fx_daily.theoretical_fare_eur)\"}],\"Category\":[{\"queryRef\":\"rpt_taxi_fx_daily.date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"rpt_taxi_fx_daily\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"fixed_fare_eur\"}},\"Function\":0},\"Name\":\"Sum(rpt_taxi_fx_daily.fixed_fare_eur)\",\"NativeReferenceName\":\"Sum of fixed ear\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"theoretical_fare_eur\"}},\"Function\":0},\"Name\":\"Sum(rpt_taxi_fx_daily.theoretical_fare_eur)\",\"NativeReferenceName\":\"Sum of theoretical fare eur\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"date\"},\"Name\":\"rpt_taxi_fx_daily.date\",\"NativeReferenceName\":\"date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"date\"}}}]},\"columnProperties\":{\"Sum(rpt_taxi_fx_daily.fixed_fare_eur)\":{\"displayName\":\"Sum of fixed ear\"},\"Sum(rpt_taxi_fx_daily.theoretical_fare_eur)\":{\"displayName\":\"Sum of theoretical fare eur\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 351.25,
+          "width": 689.84,
+          "x": 0.00,
+          "y": 305.36,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"f3ceca22fa6f752e3143\",\"layouts\":[{\"id\":0,\"position\":{\"x\":942.991347342398,\"y\":0,\"z\":7000,\"width\":337.00865265760194,\"height\":281.63164400494435,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"rpt_taxi_gdp_yearly.year\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(rpt_taxi_gdp_yearly.total_fare_usd)\"},{\"queryRef\":\"Sum(rpt_taxi_gdp_yearly.gdp_usd)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"rpt_taxi_gdp_yearly\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"year\"},\"Name\":\"rpt_taxi_gdp_yearly.year\",\"NativeReferenceName\":\"year\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"total_fare_usd\"}},\"Function\":0},\"Name\":\"Sum(rpt_taxi_gdp_yearly.total_fare_usd)\",\"NativeReferenceName\":\"Total revenue taxi usd\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"gdp_usd\"}},\"Function\":0},\"Name\":\"Sum(rpt_taxi_gdp_yearly.gdp_usd)\",\"NativeReferenceName\":\"GDP usd\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"total_fare_usd\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(rpt_taxi_gdp_yearly.total_fare_usd)\":{\"displayName\":\"Total revenue taxi usd\"},\"Sum(rpt_taxi_gdp_yearly.gdp_usd)\":{\"displayName\":\"GDP usd\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 281.63,
+          "width": 337.01,
+          "x": 942.99,
+          "y": 0.00,
+          "z": 7000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Taxi vs Air Quality",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "5b980080591bb74a7cad",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"2518c9a0d2e1ccd3d4ce\",\"layouts\":[{\"id\":0,\"position\":{\"x\":47.466007416563656,\"y\":142.39802224969097,\"z\":0,\"width\":1166.081582200247,\"height\":232.5834363411619,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dimdate.date\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(facttaxidaily.trip_count)\"}],\"Y2\":[{\"queryRef\":\"Sum(factairqualitydaily.avg_value)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dimdate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0},{\"Name\":\"f1\",\"Entity\":\"factairqualitydaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"},\"Name\":\"dimdate.date\",\"NativeReferenceName\":\"date\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":0},\"Name\":\"Sum(facttaxidaily.trip_count)\",\"NativeReferenceName\":\"Sum of trip count\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f1\"}},\"Property\":\"avg_value\"}},\"Function\":1},\"Name\":\"Sum(factairqualitydaily.avg_value)\",\"NativeReferenceName\":\"Average of pollution value\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}}]},\"columnProperties\":{\"Sum(facttaxidaily.trip_count)\":{\"displayName\":\"Sum of trip count\"},\"Sum(factairqualitydaily.avg_value)\":{\"displayName\":\"Average of pollution value\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[{\"name\":\"06c3e9af1a1c84c5c338\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"factairqualitydaily\"}},\"Property\":\"parameter\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"factairqualitydaily\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"parameter\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'pm25'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+          "height": 232.58,
+          "width": 1166.08,
+          "x": 47.47,
+          "y": 142.40,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"46a512a36e78eef286fa\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":398.7144622991347,\"z\":2000,\"width\":651.8665018541409,\"height\":321.18665018541407,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"scatterChart\",\"projections\":{\"X\":[{\"queryRef\":\"Sum(facttaxidaily.trip_count)\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(factairqualitydaily.avg_value)\"}],\"Series\":[{\"queryRef\":\"factairqualitydaily.parameter\"}],\"Category\":[{\"queryRef\":\"dimdate.date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0},{\"Name\":\"f1\",\"Entity\":\"factairqualitydaily\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dimdate\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":0},\"Name\":\"Sum(facttaxidaily.trip_count)\",\"NativeReferenceName\":\"Total of trip count\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f1\"}},\"Property\":\"avg_value\"}},\"Function\":1},\"Name\":\"Sum(factairqualitydaily.avg_value)\",\"NativeReferenceName\":\"Average of pollution value\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f1\"}},\"Property\":\"parameter\"},\"Name\":\"factairqualitydaily.parameter\",\"NativeReferenceName\":\"parameter\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"},\"Name\":\"dimdate.date\",\"NativeReferenceName\":\"date\"}]},\"columnProperties\":{\"Sum(facttaxidaily.trip_count)\":{\"displayName\":\"Total of trip count\"},\"Sum(factairqualitydaily.avg_value)\":{\"displayName\":\"Average of pollution value\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 321.19,
+          "width": 651.87,
+          "x": 0.00,
+          "y": 398.71,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"4b25ea4397d66572e5dc\",\"layouts\":[{\"id\":0,\"position\":{\"x\":558.5166872682323,\"y\":0,\"z\":6000,\"width\":306.946847960445,\"height\":98.09641532756488,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"factairqualitydaily.date\"},{\"queryRef\":\"Sum(factairqualitydaily.max_value)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"factairqualitydaily\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"max_value\"}},\"Function\":4},\"Name\":\"Sum(factairqualitydaily.max_value)\",\"NativeReferenceName\":\"Max of pollution value\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"date\"},\"Name\":\"factairqualitydaily.date\",\"NativeReferenceName\":\"date\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"max_value\"}},\"Function\":4}}}]},\"columnProperties\":{\"Sum(factairqualitydaily.max_value)\":{\"displayName\":\"Max of pollution value\"}},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"factairqualitydaily\"}},\"Property\":\"date\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"subquery\",\"Expression\":{\"Subquery\":{\"Query\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"factairqualitydaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"date\"},\"Name\":\"field\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"max_value\"}},\"Function\":4}}}],\"Top\":1}}},\"Type\":2},{\"Name\":\"f\",\"Entity\":\"factairqualitydaily\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"date\"}}],\"Table\":{\"SourceRef\":{\"Source\":\"subquery\"}}}}}]},\"type\":\"TopN\",\"howCreated\":0,\"isHiddenInViewMode\":false}]",
+          "height": 98.10,
+          "width": 306.95,
+          "x": 558.52,
+          "y": 0.00,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"641959b9c823cda78150\",\"layouts\":[{\"id\":0,\"position\":{\"x\":142.39802224969097,\"y\":0,\"z\":3000,\"width\":196.19283065512977,\"height\":142.39802224969097,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Sum(facttaxidaily.trip_count)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":0},\"Name\":\"Sum(facttaxidaily.trip_count)\",\"NativeReferenceName\":\"Total trip count\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(facttaxidaily.trip_count)\":{\"displayName\":\"Total trip count\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 142.40,
+          "width": 196.19,
+          "x": 142.40,
+          "y": 0.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"95309d08ab9c5b2e2780\",\"layouts\":[{\"id\":0,\"position\":{\"x\":335.42645241038315,\"y\":0,\"z\":5000,\"width\":223.09023485784917,\"height\":142.39802224969097,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Sum(factairqualitydaily.avg_value)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"factairqualitydaily\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"avg_value\"}},\"Function\":1},\"Name\":\"Sum(factairqualitydaily.avg_value)\",\"NativeReferenceName\":\"Average of avg_value\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"avg_value\"}},\"Function\":1}}}]},\"columnProperties\":{\"Sum(factairqualitydaily.avg_value)\":{\"displayName\":\"Average of pollution value\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 142.40,
+          "width": 223.09,
+          "x": 335.43,
+          "y": 0.00,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"9dac2ba9d1cdd223ee6e\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1000,\"width\":142.39802224969097,\"height\":142.39802224969097,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"factairqualitydaily.parameter\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"factairqualitydaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"parameter\"},\"Name\":\"factairqualitydaily.parameter\",\"NativeReferenceName\":\"parameter\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 142.40,
+          "width": 142.40,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"cffa4f8669d9adb076c9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":670.8529048207663,\"y\":398.7144622991347,\"z\":4000,\"width\":575.920889987639,\"height\":321.18665018541407,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"lineClusteredColumnComboChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(facttaxidaily.trip_count)\"}],\"Y2\":[{\"queryRef\":\"Avg(factairqualitydaily.avg_value)\"}],\"Category\":[{\"queryRef\":\"dimdate.date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0},{\"Name\":\"f1\",\"Entity\":\"factairqualitydaily\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dimdate\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":0},\"Name\":\"Sum(facttaxidaily.trip_count)\",\"NativeReferenceName\":\"total trip count\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f1\"}},\"Property\":\"avg_value\"}},\"Function\":1},\"Name\":\"Avg(factairqualitydaily.avg_value)\",\"NativeReferenceName\":\"Average of pollution value\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"},\"Name\":\"dimdate.date\",\"NativeReferenceName\":\"date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}}]},\"columnProperties\":{\"Sum(facttaxidaily.trip_count)\":{\"displayName\":\"total trip count\"},\"Avg(factairqualitydaily.avg_value)\":{\"displayName\":\"Average of pollution value\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 321.19,
+          "width": 575.92,
+          "x": 670.85,
+          "y": 398.71,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"d02306a275a49665a199\",\"layouts\":[{\"id\":0,\"position\":{\"x\":905.018541409147,\"y\":0,\"z\":7000,\"width\":295.87144622991343,\"height\":124.9938195302843,\"tabOrder\":7000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"facttaxidaily.date\"},{\"queryRef\":\"Sum(facttaxidaily.trip_count)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"date\"},\"Name\":\"facttaxidaily.date\",\"NativeReferenceName\":\"date\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":4},\"Name\":\"Sum(facttaxidaily.trip_count)\",\"NativeReferenceName\":\"Max of trip count\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"date\"}}}]},\"columnProperties\":{\"Sum(facttaxidaily.trip_count)\":{\"displayName\":\"Max of trip count\"}},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[{\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"facttaxidaily\"}},\"Property\":\"date\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"subquery\",\"Expression\":{\"Subquery\":{\"Query\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"date\"},\"Name\":\"field\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":4}}}],\"Top\":1}}},\"Type\":2},{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"date\"}}],\"Table\":{\"SourceRef\":{\"Source\":\"subquery\"}}}}}]},\"type\":\"TopN\",\"howCreated\":0,\"isHiddenInViewMode\":false}]",
+          "height": 124.99,
+          "width": 295.87,
+          "x": 905.02,
+          "y": 0.00,
+          "z": 7000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Air Quality Overview",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "bf2c1ff60862d3f2dc6b",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"3dbc08b767a6ce7be03f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.493201483312731,\"y\":0,\"z\":0,\"width\":631.2978986402966,\"height\":316.4400494437577,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dimdate.date\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(factairqualitydaily.avg_value)\"}],\"Series\":[{\"queryRef\":\"factairqualitydaily.parameter\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dimdate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"factairqualitydaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"},\"Name\":\"dimdate.date\",\"NativeReferenceName\":\"date\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"avg_value\"}},\"Function\":1},\"Name\":\"Sum(factairqualitydaily.avg_value)\",\"NativeReferenceName\":\"Average of pollution value\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"parameter\"},\"Name\":\"factairqualitydaily.parameter\",\"NativeReferenceName\":\"parameter\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}}]},\"columnProperties\":{\"Sum(factairqualitydaily.avg_value)\":{\"displayName\":\"Average of pollution value\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 316.44,
+          "width": 631.30,
+          "x": 9.49,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"95126755f1bddce2564f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":683.5105067985166,\"y\":0,\"z\":3000,\"width\":158.22002472187884,\"height\":147.14462299134732,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"factairqualitydaily.parameter\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"factairqualitydaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"parameter\"},\"Name\":\"factairqualitydaily.parameter\",\"NativeReferenceName\":\"parameter\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 147.14,
+          "width": 158.22,
+          "x": 683.51,
+          "y": 0.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"dee83717d9fe3af3f429\",\"layouts\":[{\"id\":0,\"position\":{\"x\":683.5105067985166,\"y\":305.3646477132262,\"z\":1000,\"width\":596.4894932014832,\"height\":414.5364647713226,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(factairqualitydaily.avg_value)\"}],\"Category\":[{\"queryRef\":\"factairqualitydaily.location_name\",\"active\":true}],\"Series\":[{\"queryRef\":\"factairqualitydaily.parameter\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"factairqualitydaily\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"avg_value\"}},\"Function\":1},\"Name\":\"Sum(factairqualitydaily.avg_value)\",\"NativeReferenceName\":\"Average of pollution value\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"location_name\"},\"Name\":\"factairqualitydaily.location_name\",\"NativeReferenceName\":\"location name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"parameter\"},\"Name\":\"factairqualitydaily.parameter\",\"NativeReferenceName\":\"parameter\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"avg_value\"}},\"Function\":1}}}]},\"columnProperties\":{\"Sum(factairqualitydaily.avg_value)\":{\"displayName\":\"Average of pollution value\"},\"factairqualitydaily.location_name\":{\"displayName\":\"location name\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 414.54,
+          "width": 596.49,
+          "x": 683.51,
+          "y": 305.36,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"ed79029171c318959025\",\"layouts\":[{\"id\":0,\"position\":{\"x\":903.4363411619282,\"y\":0,\"z\":4000,\"width\":376.56365883807166,\"height\":232.5834363411619,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"factairqualitydaily.location_name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"factairqualitydaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"location_name\"},\"Name\":\"factairqualitydaily.location_name\",\"NativeReferenceName\":\"location_name\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 232.58,
+          "width": 376.56,
+          "x": 903.44,
+          "y": 0.00,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"f45a0bb76878e37d325b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.493201483312731,\"y\":316.4400494437577,\"z\":2000,\"width\":631.2978986402966,\"height\":403.4610630407911,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Rows\":[{\"queryRef\":\"factairqualitydaily.location_name\",\"active\":true}],\"Columns\":[{\"queryRef\":\"factairqualitydaily.parameter\",\"active\":true}],\"Values\":[{\"queryRef\":\"Sum(factairqualitydaily.avg_value)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"factairqualitydaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"location_name\"},\"Name\":\"factairqualitydaily.location_name\",\"NativeReferenceName\":\"location_name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"parameter\"},\"Name\":\"factairqualitydaily.parameter\",\"NativeReferenceName\":\"parameter\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"avg_value\"}},\"Function\":1},\"Name\":\"Sum(factairqualitydaily.avg_value)\",\"NativeReferenceName\":\"Average of avg_value\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 403.46,
+          "width": 631.30,
+          "x": 9.49,
+          "y": 316.44,
+          "z": 2000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Mobility Overview",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "f98ed1b3c8d8080df0b5",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"24235c5e78a8eb9e8ee1\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":0,\"width\":284.79604449938194,\"height\":202.52163164400494,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Sum(facttaxidaily.trip_count)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":0},\"Name\":\"Sum(facttaxidaily.trip_count)\",\"NativeReferenceName\":\"Total trips\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(facttaxidaily.trip_count)\":{\"displayName\":\"Total trips\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 202.52,
+          "width": 284.80,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"694674ffa13613227f41\",\"layouts\":[{\"id\":0,\"position\":{\"x\":583.831891223733,\"y\":28.479604449938194,\"z\":2000,\"width\":696.168108776267,\"height\":348.0840543881335,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dimdate.date\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(facttaxidaily.trip_count)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dimdate\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"},\"Name\":\"dimdate.date\",\"NativeReferenceName\":\"date\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":0},\"Name\":\"Sum(facttaxidaily.trip_count)\",\"NativeReferenceName\":\"Total trip count\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"date\"}}}]},\"columnProperties\":{\"Sum(facttaxidaily.trip_count)\":{\"displayName\":\"Total trip count\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 348.08,
+          "width": 696.17,
+          "x": 583.83,
+          "y": 28.48,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"776ab97af4d905eb4487\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":425.61186650185414,\"z\":4000,\"width\":765.7849196538937,\"height\":275.3028430160692,\"tabOrder\":4000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"dimzone_fixed.borough\"},{\"queryRef\":\"dimzone_fixed.zone\"},{\"queryRef\":\"Sum(facttaxidaily.total_fare_usd)\"},{\"queryRef\":\"Sum(facttaxidaily.trip_count)\"},{\"queryRef\":\"Sum(facttaxidaily.avg_fare_usd)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dimzone_fixed\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"borough\"},\"Name\":\"dimzone_fixed.borough\",\"NativeReferenceName\":\"borough\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"zone\"},\"Name\":\"dimzone_fixed.zone\",\"NativeReferenceName\":\"zone\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":0},\"Name\":\"Sum(facttaxidaily.trip_count)\",\"NativeReferenceName\":\"Sum of trip_count1\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_fare_usd\"}},\"Function\":0},\"Name\":\"Sum(facttaxidaily.total_fare_usd)\",\"NativeReferenceName\":\"Sum of total_fare_usd\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"avg_fare_usd\"}},\"Function\":1},\"Name\":\"Sum(facttaxidaily.avg_fare_usd)\",\"NativeReferenceName\":\"Average of avg_fare_usd\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"filterSortOrder\":2}}",
+          "filters": "[{\"name\":\"47f18f376b221b698b2e\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dimzone_fixed\"}},\"Property\":\"borough\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dimzone_fixed\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"borough\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Bronx'\"}}],[{\"Literal\":{\"Value\":\"'Brooklyn'\"}}],[{\"Literal\":{\"Value\":\"'Manhattan'\"}}],[{\"Literal\":{\"Value\":\"'Queens'\"}}],[{\"Literal\":{\"Value\":\"'Staten Island'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{},\"isHiddenInViewMode\":false}]",
+          "height": 275.30,
+          "width": 765.78,
+          "x": 0.00,
+          "y": 425.61,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"7dca25e3030590c75ec6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":202.52163164400494,\"z\":1000,\"width\":284.79604449938194,\"height\":158.22002472187884,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"cardVisual\",\"projections\":{\"Data\":[{\"queryRef\":\"Sum(facttaxidaily.total_fare_usd)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_fare_usd\"}},\"Function\":0},\"Name\":\"Sum(facttaxidaily.total_fare_usd)\",\"NativeReferenceName\":\"Total revenue of taxi usd\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"total_fare_usd\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(facttaxidaily.total_fare_usd)\":{\"displayName\":\"Total revenue of taxi usd\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 158.22,
+          "width": 284.80,
+          "x": 0.00,
+          "y": 202.52,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"b6c3a45ed38200beabb9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":765.7849196538937,\"y\":425.61186650185414,\"z\":3000,\"width\":514.2150803461062,\"height\":275.3028430160692,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(facttaxidaily.trip_count)\"}],\"Category\":[{\"queryRef\":\"dimzone_fixed.borough\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"dimzone_fixed\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":0},\"Name\":\"Sum(facttaxidaily.trip_count)\",\"NativeReferenceName\":\"Total trip count\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"borough\"},\"Name\":\"dimzone_fixed.borough\",\"NativeReferenceName\":\"borough\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"trip_count\"}},\"Function\":0}}}]},\"columnProperties\":{\"Sum(facttaxidaily.trip_count)\":{\"displayName\":\"Total trip count\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[{\"name\":\"c6feca4377b96a2a5fe5\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"dimzone_fixed\"}},\"Property\":\"borough\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dimzone_fixed\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"borough\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Bronx'\"}}],[{\"Literal\":{\"Value\":\"'Brooklyn'\"}}],[{\"Literal\":{\"Value\":\"'Manhattan'\"}}],[{\"Literal\":{\"Value\":\"'Queens'\"}}],[{\"Literal\":{\"Value\":\"'Staten Island'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{},\"isHiddenInViewMode\":false}]",
+          "height": 275.30,
+          "width": 514.22,
+          "x": 765.78,
+          "y": 425.61,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"c84300d6f9dfd12093c6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":284.79604449938194,\"y\":123.4116192830655,\"z\":6000,\"width\":299.035846724351,\"height\":275.3028430160692,\"tabOrder\":6000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dimzone.Borough\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dimzone\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Borough\"},\"Name\":\"dimzone.Borough\",\"NativeReferenceName\":\"Borough\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 275.30,
+          "width": 299.04,
+          "x": 284.80,
+          "y": 123.41,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"e63a7aac7524f2f4d440\",\"layouts\":[{\"id\":0,\"position\":{\"x\":284.79604449938194,\"y\":0,\"z\":5000,\"width\":299.035846724351,\"height\":120.24721878862793,\"tabOrder\":5000}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"facttaxidaily.date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"date\"},\"Name\":\"facttaxidaily.date\",\"NativeReferenceName\":\"date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"endDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2024-12-31T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"facttaxidaily\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Comparison\":{\"ComparisonKind\":3,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"date\"}},\"Right\":{\"Literal\":{\"Value\":\"datetime'2025-01-01T00:00:00'\"}}}}}]}}}}]}}}",
+          "filters": "[]",
+          "height": 120.25,
+          "width": 299.04,
+          "x": 284.80,
+          "y": 0.00,
+          "z": 5000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+table dimfx
+	lineageTag: 944ff357-ba42-49a9-a06e-56b3234dcd8b
+	sourceLineageTag: [dbo].[dimfx]
+
+	column CURRENCY
+		dataType: string
+		lineageTag: b581afba-151c-46b3-ae88-85a88c803561
+		sourceLineageTag: CURRENCY
+		summarizeBy: none
+		sourceColumn: CURRENCY
+
+		annotation SummarizationSetBy = Automatic
+
+	column CURRENCY_DENOM
+		dataType: string
+		lineageTag: bb48fbf2-9ec2-4466-b8ae-90e1955ba466
+		sourceLineageTag: CURRENCY_DENOM
+		summarizeBy: none
+		sourceColumn: CURRENCY_DENOM
+
+		annotation SummarizationSetBy = Automatic
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: cfc52269-739c-4522-a0a2-76f86d984797
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column usd_eur_rate
+		dataType: double
+		lineageTag: 6ba428bb-eb78-4b75-b05d-28079e6d33a8
+		sourceLineageTag: usd_eur_rate
+		summarizeBy: sum
+		sourceColumn: usd_eur_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: 14a528af-e916-4ed3-863c-9c39636a7095
+		sourceLineageTag: year
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: 30e770b8-a883-4aa1-a8b0-fbbe796d2c2f
+		sourceLineageTag: month
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimfx = entity
+		mode: directLake
+		source
+			entityName: dimfx
+			schemaName: dbo
+			expressionSource: 'DirectLake - Warehouse'
+

@@ -1,0 +1,124 @@
+table factairqualitydaily
+	lineageTag: 9935df25-5d77-402b-9224-b872acb00863
+	sourceLineageTag: [dbo].[factairqualitydaily]
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 006cbdab-1da9-4504-ba59-2669bbe46b0b
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column parameter
+		dataType: string
+		lineageTag: d1a9765e-6f18-4ff9-9d1f-f6ffa0b0b185
+		sourceLineageTag: parameter
+		summarizeBy: none
+		sourceColumn: parameter
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 46e2ee5b-c8d4-4b73-81d9-f2b0a63b2bad
+		sourceLineageTag: location_id
+		summarizeBy: sum
+		sourceColumn: location_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column location_name
+		dataType: string
+		lineageTag: 0d81cb3c-2d8b-4b01-86b7-f8947f3963f7
+		sourceLineageTag: location_name
+		summarizeBy: none
+		sourceColumn: location_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column measurement_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 337df951-f6a4-4b2e-88eb-3106b5e2452a
+		sourceLineageTag: measurement_count
+		summarizeBy: sum
+		sourceColumn: measurement_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_value
+		dataType: double
+		lineageTag: 85bc7dae-81e1-4b72-a47f-ae1acc533733
+		sourceLineageTag: avg_value
+		summarizeBy: sum
+		sourceColumn: avg_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column min_value
+		dataType: double
+		lineageTag: 2868ea7b-8c5b-4452-842f-47f9ef6f3298
+		sourceLineageTag: min_value
+		summarizeBy: sum
+		sourceColumn: min_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column max_value
+		dataType: double
+		lineageTag: 8dfac8bf-fcae-40b9-add1-bb3e6e626656
+		sourceLineageTag: max_value
+		summarizeBy: sum
+		sourceColumn: max_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lat
+		dataType: double
+		lineageTag: 38781c45-6fb3-4294-bb7d-312f40043259
+		sourceLineageTag: lat
+		summarizeBy: sum
+		sourceColumn: lat
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column lon
+		dataType: double
+		lineageTag: 02af4dcb-452f-4ba6-a5cd-9ee73fedaee3
+		sourceLineageTag: lon
+		summarizeBy: sum
+		sourceColumn: lon
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: edc2d607-622f-4252-9cfd-5f417df3ff5f
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition factairqualitydaily = entity
+		mode: directLake
+		source
+			entityName: factairqualitydaily
+			schemaName: dbo
+			expressionSource: 'DirectLake - Warehouse'
+

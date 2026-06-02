@@ -1,0 +1,193 @@
+{
+  "properties": {
+    "jobMode": "Batch",
+    "source": {
+      "type": "LakehouseTable",
+      "connectionSettings": {
+        "type": "Lakehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "df8f3eb3-c872-868a-48ff-6f83f50e128a",
+          "rootFolder": "Tables"
+        }
+      }
+    },
+    "destination": {
+      "type": "DataWarehouseTable",
+      "connectionSettings": {
+        "type": "DataWarehouse",
+        "typeProperties": {
+          "workspaceId": "00000000-0000-0000-0000-000000000000",
+          "artifactId": "8fa5268a-7b13-8f78-4995-a07c5b01d68b",
+          "endPoint": "jsfnrdg43k4ujibntot67pfegq-6r5k45eiq7vexogexa3x7u3wy4.datawarehouse.fabric.microsoft.com"
+        }
+      }
+    },
+    "policy": {
+      "timeout": "0.12:00:00",
+      "retry": 0
+    }
+  },
+  "activities": [
+    {
+      "id": "28335a09-9580-443a-9ad0-284d9b8b8a8e",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "dimdate"
+          },
+          "partitionSettings": {
+            "partitionOption": "None"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "dimdate"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "ad5aa085-9296-474a-9e6c-71a74a27855f",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "dimfx"
+          },
+          "partitionSettings": {
+            "partitionOption": "None"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "dimfx"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "43c51717-7f97-4d36-af10-e1f0c7d27f2b",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "dimgdp"
+          },
+          "partitionSettings": {
+            "partitionOption": "None"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "dimgdp"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "5bf1661b-1430-4c71-be6f-9ca7d88e840e",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "factairqualitydaily"
+          },
+          "partitionSettings": {
+            "partitionOption": "None"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "factairqualitydaily"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    },
+    {
+      "id": "779b9839-b27c-4ff5-a4e6-15d3b169e43b",
+      "properties": {
+        "source": {
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "facttaxidaily"
+          },
+          "partitionSettings": {
+            "partitionOption": "None"
+          }
+        },
+        "destination": {
+          "tableOption": "autoCreate",
+          "writeBehavior": "Append",
+          "datasetSettings": {
+            "schema": "dbo",
+            "table": "facttaxidaily"
+          }
+        },
+        "enableStaging": true,
+        "translator": {
+          "type": "TabularTranslator"
+        },
+        "typeConversionSettings": {
+          "typeConversion": {
+            "allowDataTruncation": true,
+            "treatBooleanAsNumber": false
+          }
+        }
+      }
+    }
+  ]
+}

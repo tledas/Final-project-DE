@@ -1,0 +1,91 @@
+table dimdate
+	lineageTag: f129e497-5aeb-478f-b812-d4efe1828652
+	sourceLineageTag: [dbo].[dimdate]
+
+	column date
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 91005d93-288b-45bf-bc26-71422f8f8dfa
+		sourceLineageTag: date
+		summarizeBy: none
+		sourceColumn: date
+
+		annotation SummarizationSetBy = Automatic
+
+	column date_key
+		dataType: int64
+		formatString: 0
+		lineageTag: f1a6f1cb-fc64-4104-b89f-41a77e98adb2
+		sourceLineageTag: date_key
+		summarizeBy: none
+		sourceColumn: date_key
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: int64
+		formatString: 0
+		lineageTag: ab5618a0-2f7a-4304-97a4-f5991372b243
+		sourceLineageTag: year
+		summarizeBy: sum
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: int64
+		formatString: 0
+		lineageTag: d3ac8b4a-ceac-4a71-9925-159dbbdc41bf
+		sourceLineageTag: month
+		summarizeBy: sum
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column day
+		dataType: int64
+		formatString: 0
+		lineageTag: fc76f408-18db-40e9-bb7f-3ba829033e53
+		sourceLineageTag: day
+		summarizeBy: sum
+		sourceColumn: day
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		dataType: int64
+		formatString: 0
+		lineageTag: 7406dcc8-9714-46bf-83d4-7f1c3350c779
+		sourceLineageTag: day_of_week
+		summarizeBy: sum
+		sourceColumn: day_of_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: int64
+		formatString: 0
+		lineageTag: 69bafb36-19c5-457e-97da-e12d97a8ad5a
+		sourceLineageTag: quarter
+		summarizeBy: sum
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column is_weekend
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9c714317-3c96-4a98-b53c-1ed90acda9ae
+		sourceLineageTag: is_weekend
+		summarizeBy: none
+		sourceColumn: is_weekend
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dimdate = entity
+		mode: directLake
+		source
+			entityName: dimdate
+			schemaName: dbo
+			expressionSource: 'DirectLake - Warehouse'
+
