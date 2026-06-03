@@ -1,0 +1,6 @@
+{
+  "databaseType": "ReadWrite",
+  "parentEventhouseItemId": "89ec76ab-8ff2-9bde-4ba1-1188ef0c7c60",
+  "oneLakeCachingPeriod": "P36500D",
+  "oneLakeStandardStoragePeriod": "P36500D"
+}

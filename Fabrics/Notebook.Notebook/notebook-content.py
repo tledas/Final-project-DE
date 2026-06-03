@@ -4,8 +4,7 @@
 
 # META {
 # META   "kernel_info": {
-# META     "name": "jupyter",
-# META     "jupyter_kernel_name": "python3.12"
+# META     "name": "synapse_pyspark"
 # META   },
 # META   "dependencies": {
 # META     "lakehouse": {
@@ -78,7 +77,7 @@ PARAMS = ["pm25", "no2", "o3", "co", "so2", "no", "nox", "pm10", "pm1"]
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -126,7 +125,7 @@ print(f"\nВсего локаций NYC bbox: {len(locations)}")
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -180,7 +179,7 @@ print("Locations available:", len(available_locations))
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -222,7 +221,7 @@ for item in available_locations:
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -263,7 +262,7 @@ print(file_urls[:3])
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -289,7 +288,7 @@ print("Pandas chunks:", len(all_pdfs))
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -332,7 +331,7 @@ display(df.limit(10))
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -357,7 +356,7 @@ df_air_bronze.groupBy("parameter") \
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -379,7 +378,7 @@ print("Difference:", pandas_rows - bronze_rows)
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -398,7 +397,7 @@ df_air_bronze.groupBy("parameter") \
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -449,7 +448,7 @@ print(f"\nЗаписано строк: {df_all.count()}")
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # MARKDOWN ********************
@@ -497,7 +496,7 @@ print(f"Silver такси записано: {df_taxi_silver.count()}")
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # MARKDOWN ********************
@@ -532,7 +531,7 @@ print(f"Silver OpenAQ: {df_air_silver.count()} строк")
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # MARKDOWN ********************
@@ -586,7 +585,7 @@ print(f"Silver GDP: {df_gdp_silver.count()} строк")
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # MARKDOWN ********************
@@ -622,7 +621,7 @@ print(f"DimDate записано: {df_dim_date.count()} дней")
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # MARKDOWN ********************
@@ -678,7 +677,7 @@ print(f"FactTaxiDaily записано: {df_fact_taxi.count()} строк")
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # MARKDOWN ********************
@@ -723,7 +722,7 @@ print(f"Gold FactAirQualityDaily: {df_fact_air.count()} строк")
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # MARKDOWN ********************
@@ -760,7 +759,7 @@ print(f"DimGDP записано: {df_gdp.count()} строк")
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # MARKDOWN ********************
@@ -816,7 +815,7 @@ plt.show()
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -850,7 +849,7 @@ for param, dates in sorted(param_dates.items()):
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -865,7 +864,7 @@ spark.read.table("Bronze.dbo.openaq_measurements") \
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -905,7 +904,7 @@ for param_name in ["co", "o3"]:
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }
 
 # CELL ********************
@@ -932,5 +931,5 @@ for param_name in ["co", "o3"]:
 
 # META {
 # META   "language": "python",
-# META   "language_group": "jupyter_python"
+# META   "language_group": "synapse_pyspark"
 # META }

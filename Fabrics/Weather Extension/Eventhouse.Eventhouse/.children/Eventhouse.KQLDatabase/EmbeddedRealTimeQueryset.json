@@ -1,0 +1,39 @@
+{
+  "queryset": {
+    "version": "1.0.0",
+    "dataSources": [
+      {
+        "id": "e7ffa4d8-fa7c-44f0-8bee-0c129c6ca7a6",
+        "clusterUri": "https://trd-hfb2q528r4e8qyku5p.z7.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "Eventhouse"
+      },
+      {
+        "id": "ac60c8c8-4aea-435c-9454-b0989a460f82",
+        "clusterUri": "https://trd-hfb2q528r4e8qyku5p.z7.kusto.fabric.microsoft.com",
+        "type": "Fabric",
+        "databaseItemId": "Eventhouse"
+      }
+    ],
+    "tabs": [
+      {
+        "id": "479c6295-ca8b-4bab-aae0-e97ff340fb6f",
+        "content": ".create-merge table weather_hourly_enriched (\n  ts: datetime,\n  location_key: string,\n  location_name: string,\n  latitude: real,\n  longitude: real,\n  temperature_c: real,\n  relative_humidity_pct: real,\n  dew_point_c: real,\n  apparent_temperature_c: real,\n  precipitation_mm: real,\n  rain_mm: real,\n  snowfall_cm: real,\n  weather_code: int,\n  weather_condition: string,\n  cloud_cover_pct: real,\n  surface_pressure_hpa: real,\n  wind_speed_ms: real,\n  wind_gusts_ms: real,\n  heat_index_c: real,\n  wind_chill_c: real,\n  comfort_index: real,\n  is_raining: bool,\n  is_snowing: bool,\n  source: string,\n  fetched_at: datetime\n)\n\n",
+        "title": "Tab",
+        "dataSourceId": "ac60c8c8-4aea-435c-9454-b0989a460f82"
+      },
+      {
+        "id": "4f89d526-26e9-419e-895d-16673eea73fd",
+        "content": "weather_hourly_enriched\n| sort by ts desc\n| take 10",
+        "title": "",
+        "dataSourceId": "ac60c8c8-4aea-435c-9454-b0989a460f82"
+      },
+      {
+        "id": "aae58eeb-7b5a-4c25-a5ed-764d4f160929",
+        "content": "weather_hourly_enriched\n| getschema",
+        "title": "",
+        "dataSourceId": "ac60c8c8-4aea-435c-9454-b0989a460f82"
+      }
+    ]
+  }
+}

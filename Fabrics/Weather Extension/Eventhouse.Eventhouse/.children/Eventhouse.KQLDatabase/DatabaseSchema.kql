@@ -1,0 +1,5 @@
+// KQL script
+// Use management commands in this script to configure your database items, such as tables, functions, materialized views, and more.
+
+
+.create-merge table weather_hourly_enriched (ts:datetime, location_key:string, location_name:string, latitude:real, longitude:real, temperature_c:real, relative_humidity_pct:real, dew_point_c:real, apparent_temperature_c:real, precipitation_mm:real, rain_mm:real, snowfall_cm:real, weather_code:int, weather_condition:string, cloud_cover_pct:real, surface_pressure_hpa:real, wind_speed_ms:real, wind_gusts_ms:real, heat_index_c:real, wind_chill_c:real, comfort_index:real, is_raining:bool, is_snowing:bool, source:string, fetched_at:datetime) 
